@@ -11,7 +11,7 @@
 <body>
     <h1 class="web-name">
         <a href="../">    
-             Huyền Lê Sport 
+             SHOES STORE
         </a>
     </h1>
     <div class="login-div"> <br>  
@@ -28,7 +28,7 @@
                 <tr><td><input type="text" placeholder="gmail"></td></tr><br>
                 <tr style="text-align:center;"><td><input type="submit" value="Đăng ký"style="color:white;"></td></tr><br>
                 <br>
-                <tr><td>Đã có tài khoản? <a href="../login" >đăng nhâp</a></td></tr><br>
+                <tr style="text-align: center;"><td>Đã có tài khoản? <a href="../login" >Đăng nhâp</a></td></tr><br>
             </table>
         </div>
     </div>

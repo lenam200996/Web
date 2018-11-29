@@ -24,12 +24,13 @@
                         <input type="submit" value="Search">
                     </form>
                 </li>
-                <li>Hotline: +84123456789</li>
+                <li>  Hotline: 0981240562  </li>
                 <li>
                     <ul class="ul-topmenu">
-                        <li style="color:blue;"><i class="fab fa-facebook-square"></i></li>
-                        <li><i class="fab fa-twitter-square"></i></li>
-                        <li><i class="fab fa-google-plus-square"></i></li>
+                        <li style="color: blue ;"><i class="fab fa-facebook-square"></i></li>
+                        <li ><i class="fab fa-twitter-square"></i></li>
+                        <li style="color: red ;"><i class="fab fa-google-plus-square"></i></li>
+                    
                     </ul>
                 </li>
                 
@@ -39,15 +40,15 @@
         <div class="header" id="hed">
             <div class="menu">
                 <div class="logo">
-                    <a href="../"><img src="../images/logo.png" style="width:50px;height:50px"/></a>
+                    <img src="../images/images/logo1.png" style="width:70px;height:50px"/>
                 </div>
                 <div class="menu-main">
                     <ul class="ul-menu">
-                        <li><a href="../">Trang chu</a></li>
-                        <li><a href="#">Giay moi</a></li>
-                        <li><a href="#">Giay the thao nam</a></li>
-                        <li><a href="#">Giay the thao nu</a></li>
-                        <li><a href="#">Khuyen mai</a></li>
+                        <li><a href="../">Trang chủ</a></li>
+                        <li><a href="#">Giày mới</a></li>
+                        <li><a href="#">Giày nam</a></li>
+                        <li><a href="#">Giày nữ</a></li>
+                        <li><a href="#">Khuyến mãi</a></li>
                         <li><i id="cart" style="font-size:25px;" class="fas fa-cart-plus"></i></li>
                     </ul>
                 </div>   
@@ -75,7 +76,7 @@
                <ul class="group-list">
                        <li class="title active" style="text-align:center;line-height: 30px;">TIN TỨC</li>
                        <li class="title item"><i class="fas fa-atom" style="margin: 0 10px 0 10px;"></i>Converse Star Eyercw Cut Out</li>
-                       <li class="title item last"><i class="fas fa-atom" style="margin: 0 10px 0 10px;"></i>Giày Chuck Taylor All Start II Neon</li>
+                       <li class="title item last"><i class="fas fa-atom" style="margin: 0 10px 0 10px;"></i>Giày Chuck Taylor </li>
                    </ul>
                </div>
                <div class="news">
@@ -89,13 +90,13 @@
             </div>
             <div class="right">
                <div class="title-main" >
-                    Chi tiết sản phẩm
+                    CHI TIẾT SẢN PHẨM
                </div>
                <!------------->
                <div>
                    <div class="image-details">
-                       <img src="../images/products/giay1.jpg" style="width: 80%;height: 70%"/><br>
-                       <p>HÌNH ẢNH SẢN PHẨM</p>
+                       <img src="../images/products/sp20.jpg" style="width: 80%;height: 70%"/><br>
+                       <p>Hình ảnh sản phẩm</p>
                    </div>
                    <div class="details">
                         <p style="font-size:25px;margin-top:20px;text-transform: uppercase;">Giày adidas cao cấp</p>
@@ -105,7 +106,7 @@
                            <tr><td><hr></td><td><hr></td></tr>
                            <tr style="height: 20px;"></tr>
                            <tr>
-                               <td class="col-1"><strike>Giá cũ: 100</strike> <br><br>Giá mới: 99</td>
+                               <td class="col-1"><strike>Giá cũ: 700 </strike> <br><br>Giá mới: 590</td>
                                <td class="col-2"></td>
                            </tr>
                            <tr style="height: 20px;"></tr>
@@ -116,7 +117,7 @@
                                <td class="col-2">
                                     <ul style="list-style-type: none;">
                                         <li style="float:left;margin:10px;"><div style="width:20px;height: 20px; background-color: red;"></div><input type="radio" name="color"></li>
-                                        <li style="float:left;margin:10px;"><div style="width:20px;height: 20px; background-color: yellow;"></div><input type="radio" name="color"></li>
+                                        <li style="float:left;margin:10px;"><div style="width:20px;height: 20px; background-color: black ;"></div><input type="radio" name="color"></li>
                                     </ul>
                                     <div class="div-clear"></div>
                                </td>
@@ -135,35 +136,75 @@
                                <td class="col-1">Số lượng: </td>
                                <td class="col-2">
                                <div class="count">
-                                    <button onclick="countsub()" class="fas fa-minus-circle" style="width:20px;height:20px;background:none;border:none;outline:none;cursor:pointer;"></button>
-                                    <input type="number" name="count" id="count-number" value="1" style="border:.5px solid lightgray;width:40px;height:20px;font-size:15px;text-align:center;border-radius:9px;outline:none;">
-                                    <button onclick="countplus()" class="fas fa-plus-circle" style="width:20px;height:20px;background:none;border:none;outline:none;cursor:pointer;"></button>
+
+                                    <button onclick="countsub()" class="fas fa-minus-circle" 
+                                    style="width:20px;height:20px;
+                                    background:none;
+                                    border:none;
+                                    outline:none;
+                                    cursor:pointer;">
+                                    </button>
+
+                                    <input type="number" name="count" id="count-number" value="1"
+                                     style="border:.5px solid lightgray;
+                                     width:40px;height:20px;
+                                     font-size:15px;
+                                     text-align:center;
+                                     border-radius:9px;
+                                     outline:none;">
+
+                                    <button onclick="countplus()" class="fas fa-plus-circle"
+                                     style="width:20px;height:20px;
+                                     background:none;
+                                     border:none;
+                                     outline:none;
+                                     cursor:pointer;">
+                                     </button>
+
                                 </div>
                                </td>
                            </tr>
                            <tr>
                                <td class="col-1">Tổng tiền: </td>
                                <td class="col-2">
-                                    <span id="total-money">99</span>$
+                                    <span id="total-money">590</span>$
                                </td>
                            </tr>
                            <tr>
                                <td class="col-1"></td>
-                               <td class="col-2">
+                               <td class="col-2"> <!--class để button có thêm cái icon bên trong -->
                                     <button class="fas fa-cart-arrow-down" 
-                                    style="overflow:hidden;margin: 0 10px 0 10px;width:50px;height:37px;transition:all .2s;
-                                    border:.5px solid lightblue;background:none;outline:none;
-                                    padding:5px;background-color: green;
+                                    style="
+                                    overflow:hidden;
+                                    margin: 0 10px 0 10px;
+                                    width:50px;
+                                    height:37px;
+                                    transition:all .2s;
+                                    border:.5px solid lightblue;
+                                    background:none;
+                                    outline:none;
+                                    padding:5px;
+                                    background-color: yellow;
                                     border-radius: 9px;
                                     cursor:pointer;
                                     " 
-                                    onmouseover="hovermouse(this)" onmouseout="unhovermouse(this)">
-                                        <p id="label-button" style="font-size:15px;">Thêm giỏ hàng</p>  
+                                    onmouseover="hovermouse(this)" onmouseout="unhovermouse(this)"> 
+                                   
+                                     
+                                        <p id="label-button" style="font-size:15px;">Thêm vào giỏ hàng</p>  
                                     </button>
-                                    <button class="far fa-credit-card" style="overflow:hidden;margin: 0 10px 0 10px;width:50px;height:37px;transition:all .2s;
-                                     border:.5px solid lightblue;background:none;outline:none;
-                                    padding:5px;background-color: green;
-                                    font-weight: 700;border-radius: 9px;
+                                    <button class="far fa-credit-card" 
+                                    style="overflow:hidden;
+                                    margin: 0 10px 0 10px;
+                                    width:50px;height:37px;
+                                    transition:all .2s;
+                                     border:.5px solid lightblue;
+                                     background:none;
+                                     outline:none;
+                                    padding:5px;
+                                    background-color: blue;
+                                    font-weight: 700;
+                                    border-radius: 9px;
                                     cursor:pointer;
                                     " onmouseover="hovermouse(this)"  onmouseout="unhovermouse(this)">
                                         <p id="label-button" style="font-size:15px;">Mua ngay</p>  
@@ -173,7 +214,7 @@
                            <tr>
                                <td class="col-1">Chính sách giao hàng</td>
                                <td class="col-2">
-                                   Giao hàng nhanh trong vòng chục năm sẽ có :))))
+                                   Giao hàng nhanh 
                                </td>
                            </tr>
                        </table>
@@ -181,8 +222,8 @@
                    </div>
                    
                </div>
-               <div class="details-product">
-                        <p>chi tiết sản phầm</p>
+               <div class="details-product" style="text-align: center;" >
+                        <p>     Chi tiết sản phầm  </p>
                 </div>
                <!--------------->
                 <div class="div-clear"></div>
@@ -193,11 +234,11 @@
             <div class="column">
                     Thông tin về shop Huyền Lê Sport<br/>
                     Liên hệ: 0981240562<br>
-                    Địa chỉ: 28 Phạm Kinh vỹ<br>
+                    Địa chỉ: Số 10 Phạm Kinh vỹ<br>
                     Mail: huyenle220797@gmail.com
             </div>
             <div class="column">
-                    Giai đáp thắc mắc<br>
+                    Giải đáp thắc mắc<br>
                     Các câu hỏi thường gặp<br>
                     Các thông tin cần biết
             </div>
@@ -209,7 +250,8 @@
         </div>
     </div>
     <script>
-    function countsub(){
+    function countsub(){// Hàm xử lý tăng giảm số lượng khi click vào button ,cái này là trừ
+
         var value = document.getElementById("count-number").value;
         if(Number(value) > 1 ){
             var num  = Number(value) - 1;
@@ -220,7 +262,7 @@
         console.log(num);
     }
 
-    function countplus(){
+    function countplus(){ // đây là cộng
         var value = document.getElementById("count-number").value;
             var num  = Number(value) + 1;
             value = document.getElementById("count-number").value = num;
@@ -229,25 +271,26 @@
         console.log(num);
     }
 
-    function hovermouse(obj){
-        obj.style.width = "150px";     
+    function hovermouse(obj){ //lúc rê chuột thì tăng kích thước cái button 
+        obj.style.width = "150px";    //từ 50 lên 150px
+
     }
 
     function unhovermouse(obj){
-        obj.style.width = "50px";
+        obj.style.width = "50px"; // cái này là giảm khi rê chuột ra khỏi button
     }
     window.addEventListener('scroll', function() {
       if( this.scrollY >50)
         {
-            document.getElementById("hed").style.transform = "scaleY(0.8)";
-            document.getElementById("topmn").style.transform = "scaleY(0.8)";
-            document.getElementById("topmn").style.top = "-8px";
+            document.getElementById("hed").style.transform = "scaleY(0.8)";// bóp nhỏ cái menu trên cùng
+            document.getElementById("topmn").style.transform = "scaleY(0.8)";//bóp nhỏ menu chính
+            document.getElementById("topmn").style.top = "-8px"; //lúc thu nhỏ nó bị lệch nên chỉnh lại 
             document.getElementById("hed").style.top = "23px";
         }
         else 
          {
-             document.getElementById("hed").style.transform = "scaleY(1)";
-             document.getElementById("topmn").style.transform = "scaleY(1)";
+             document.getElementById("hed").style.transform = "scaleY(1)"; //trả về kích cỡ ban đầu
+             document.getElementById("topmn").style.transform = "scaleY(1)"; // trả về kích cỡ ban đầu
              document.getElementById("topmn").style.top = "0px";
             document.getElementById("hed").style.top = "40px";
          }

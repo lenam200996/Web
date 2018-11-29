@@ -10,24 +10,25 @@
 </head>
 <body>
     <h1 class="web-name">
-    <a href="../">    
-             Huyền Lê Sport 
+    <a href="../" style="color:red;">    
+             SHOES STORE
         </a>
     </h1>
     <div class="login-div">
         <div class="image">
             <img src="images/user.png" style="width: 100px;height:100px;"/><br>
-            <span style="font-size:40px;color:green;">ĐĂNG NHẬP</span>
+            <span style="font-size:40px;color:green;"> Đăng nhập</span>
         </div>
-        <hr>
+        
         <div class="input-div">
             <table>
-                <tr><td><span class="fas fa-user"> Username</span></td></tr><br>
+                <tr><td><span class="fas fa-user"> Username </span></td></tr><br>
                 <tr><td><input type="text" placeholder="Username"></td></tr><br>
-                <tr><td><span  class="fas fa-key" > Password</span></td></tr><br>
+                <tr><td><span  class="fas fa-key" > Password </span></td></tr><br>
                 <tr><td><input type="password" placeholder="password"></td></tr><br>
+                <hr>
                 <tr style="text-align:center;"><td><input type="submit" value="Đăng nhập"></td></tr><br>
-                <tr><td>Chưa có tài khoản? <a href="../register">đăng ký</a></td></tr><br>
+                <tr><th>Chưa có tài khoản? <a href="../register"> Đăng ký </a></th></tr><br>
             </table>
         </div>
     </div>
