@@ -89,7 +89,7 @@
                <div class="category">
                    <ul class="group-list" >
                        <li class="title active" style="text-align:center;line-height: 30px;">DANH MỤC SẢN PHẨM</li>
-                       <li class="title item"><i class="fas fa-atom" ></i>Giày Adidas cao cấp</li>
+                       <li class="title item"><i class="fas fa-atom" style="margin: 0 10px 0 10px;"></i>Giày Adidas cao cấp</li>
                        <li class="title item"><i class="fas fa-atom" style="margin: 0 10px 0 10px;"></i>Giày Nike cao cấp</li>
                        <li class="title item"><i class="fas fa-atom" style="margin: 0 10px 0 10px;"></i>Giày Balenciage</li>
                        <li class="title item"><i class="fas fa-atom" style="margin: 0 10px 0 10px;"></i>Giày New Balance</li>
@@ -180,7 +180,7 @@
                 <!----giay nam-->
                 <div class="giay-nam">
                     <div class="title-main" style="color: blue" >
-                            Giày nam
+                            <a href="#"><i class="fas fa-arrow-right"></i> Giày nam</a>
                     </div>
 
                          <div class="item-list">
@@ -241,7 +241,7 @@
                  <!----giay nu-->
                 <div class="giay-nam">
                     <div class="title-main" style="color: blue">
-                            Giày nữ
+                            <a href="#"><i class="fas fa-arrow-right"></i> Giày nữ</a>
                     </div>
 
 
