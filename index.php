@@ -48,7 +48,7 @@
                         <li><a href="#">Giày nam</a></li>
                         <li><a href="#">Giày nữ</a></li>
                         <li><a href="#">Khuyến mãi</a></li>
-                        <li><i id="cart" style="font-size:25px;" class="fas fa-cart-plus"></i></li>
+                        <li><a href="carts"><i id="cart" style="font-size:25px;" class="fas fa-cart-plus"></i></a></li>
                     </ul>
                 </div>   
                 
