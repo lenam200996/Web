@@ -88,7 +88,7 @@
                    </ul>
                </div>
             </div>
-            <div class="right">
+            <div class="right" style="color: gray">
                <div class="title-main" >
                 <i class="fas fa-arrow-right"> Sản phẩm</i>
                </div>
