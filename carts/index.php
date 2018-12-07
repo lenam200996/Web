@@ -111,20 +111,20 @@
                                     <span>Số lượng</span>
                                 </div>
                                 <div class="soluong">
-                                    <button onclick="countsub()" class="fas fa-minus-circle" 
+                                    <button onclick="countsub(1)" class="fas fa-minus-circle" 
                                     style="width:20px;height:20px;
                                     background:none;
                                     border:none;
                                     outline:none;
                                     cursor:pointer;"> </button>
-                                    <input type="number" name="count" id="count-number" value="1"
+                                    <input type="number" name="count" id="count-number-1" value="1"
                                      style="border:.5px solid lightgray;
                                      width:40px;height:20px;
                                      font-size:15px;
                                      text-align:center;
                                      border-radius:9px;
                                      outline:none;">
-                                    <button onclick="countplus()" class="fas fa-plus-circle"
+                                    <button onclick="countplus(1)" class="fas fa-plus-circle"
                                      style="width:20px;height:20px;
                                      background:none;
                                      border:none;
@@ -153,20 +153,20 @@
                                     <span>Số lượng</span>
                                 </div>
                                 <div class="soluong">
-                                    <button onclick="countsub()" class="fas fa-minus-circle" 
+                                    <button onclick="countsub(2)" class="fas fa-minus-circle" 
                                     style="width:20px;height:20px;
                                     background:none;
                                     border:none;
                                     outline:none;
                                     cursor:pointer;"> </button>
-                                    <input type="number" name="count" id="count-number" value="1"
+                                    <input type="number" name="count" id="count-number-2" value="1"
                                      style="border:.5px solid lightgray;
                                      width:40px;height:20px;
                                      font-size:15px;
                                      text-align:center;
                                      border-radius:9px;
                                      outline:none;">
-                                    <button onclick="countplus()" class="fas fa-plus-circle"
+                                    <button onclick="countplus(2)" class="fas fa-plus-circle"
                                      style="width:20px;height:20px;
                                      background:none;
                                      border:none;
@@ -298,25 +298,25 @@
         </div>
     </div>
     <script>
-    function countsub(){// Hàm xử lý tăng giảm số lượng khi click vào button ,cái này là trừ
+    function countsub(numb){// Hàm xử lý tăng giảm số lượng khi click vào button ,cái này là trừ
 
-        var value = document.getElementById("count-number").value;
+        var value = document.getElementById("count-number-"+numb).value;
         if(Number(value) > 1 ){
             var num  = Number(value) - 1;
-            value = document.getElementById("count-number").value = num;
+            value = document.getElementById("count-number-"+numb).value = num;
             var money = document.getElementById("total-money").innerHTML;
             document.getElementById("total-money").innerHTML =  Number(money) - 99;
         }
-        console.log(num);
+       
     }
 
-    function countplus(){ // đây là cộng
-        var value = document.getElementById("count-number").value;
+    function countplus(numb){ // đây là cộng
+        var value = document.getElementById("count-number-"+numb).value;
             var num  = Number(value) + 1;
-            value = document.getElementById("count-number").value = num;
+            value = document.getElementById("count-number-"+numb).value = num;
             var money = document.getElementById("total-money").innerHTML;
             document.getElementById("total-money").innerHTML =  Number(money) + 99;
-        console.log(num);
+        
     }
 
     function hovermouse(obj){ //lúc rê chuột thì tăng kích thước cái button 
