@@ -68,7 +68,7 @@ input[type="submit"]{
    margin-bottom: 20px;
    position: fixed;
    top:40px;
-   background-color: #12ebdead;  
+   background-color: #ffff0094;  
    transition: all 0.1s;
    z-index: 99999;
 }

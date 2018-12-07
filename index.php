@@ -9,7 +9,8 @@
     <title> Shoes Store </title>
 </head>
 <body>
-    <div class="container" id="cont">
+    <div class="conta
+    iner" id="cont">
         <div class="topmenu" id="topmn" >
             <ul class="ul-topmenu"> 
             <li>
@@ -58,19 +59,19 @@
         <!-- 
                 <img src="images/banner.png" style="width:100%;height:200px;"/> -->
 
-                <div class="slideshow-container">
+                <div class="slideshow-container" >
                     <div class="mySlides fade">
-                        <img src="images/slide/baner.jpg" style="width:100%;height:250px;">
+                        <img src="images/slide/baner.jpg" style="width:100%;height:380px;">
                         <div class="text"> *** CHÀO MỪNG BẠN TỚI VỚI THẾ GIỚI GIÀY *** </div>
                     </div>
                     
                     <div class="mySlides fade">
-                        <img src="images/slide/banner7.jpg" style="width:100%;height:250px;">
+                        <img src="images/slide/banner7.jpg" style="width:100%;height:380px;">
                         <div class="text">*** CHƯƠNG TRÌNH ƯU ĐÃI *** </div>
                     </div>
                     
                     <div class="mySlides fade">
-                        <img src="images/slide/baner.jpg" style="width:100%;height:250px;">
+                        <img src="images/slide/baner.jpg" style="width:100%;height:380px;">
                         <div class="text">*** SNEAKER GIÁ RẺ *** </div>
                     </div>
                 </div>
