@@ -9,6 +9,36 @@
     <title>Đăng nhập</title>
 </head>
 <body>
+    <?php
+        require("../common/connect.php");
+        session_start();
+    ?>
+
+    <?php
+        if(isset($_POST["login"])){
+            $username = $_POST["username"];
+            $password = $_POST["password"];
+
+            $sql = "select * from users where Username = '".$username."' and Password = '".$password."'";
+
+            $result = $mysqli->query($sql);
+            $data_result = mysqli_fetch_assoc($result);
+
+
+            if(mysqli_num_rows($result) != 0){
+                $_SESSION["admin"] = $data_result["Username"];
+                
+                header("Location:../");
+                exit();
+            }else{
+                echo '<script>
+                    alert("Đăng nhập thất bại, vui lòng kiểm tra lại!!");
+                </script>';
+            }
+    }
+    ?>
+
+
     <h1 class="web-name">
     <a href="../" style="color:red;">    
              SHOES STORE
@@ -21,15 +51,17 @@
         </div>
         
         <div class="input-div">
+            <form action="index.php" method="POST">
             <table>
                 <tr><td><span class="fas fa-user"> Username </span></td></tr><br>
-                <tr><td><input type="text" placeholder="Username"></td></tr><br>
+                <tr><td><input type="text" placeholder="Username" name="username"></td></tr><br>
                 <tr><td><span  class="fas fa-key" > Password </span></td></tr><br>
-                <tr><td><input type="password" placeholder="password"></td></tr><br>
+                <tr><td><input type="password" placeholder="password" name="password"></td></tr><br>
                 <hr>
-                <tr style="text-align:center;"><td><input type="submit" value="Đăng nhập"></td></tr><br>
+                <tr style="text-align:center;"><td><input type="submit" value="Đăng nhập" name="login"></td></tr><br>
                 <tr><th>Chưa có tài khoản? <a href="../register"> Đăng ký </a></th></tr><br>
             </table>
+        </form>
         </div>
     </div>
 </body>
