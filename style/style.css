@@ -232,13 +232,11 @@ input[type="submit"]{
 
 .item{
     transition: all 0.2s;
-    cursor: pointer;
 }
 
 .item:hover{
     transform: translateX(10px); 
     transition: all 0.2s;
-    cursor: pointer;
 }
 
 .active{

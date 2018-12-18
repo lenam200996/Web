@@ -20,66 +20,39 @@
         
             <?php
                 require("../common/left.php");
+               
+                $sql_name = "select CategoryName from categories where CategoryID = ".$_GET["id"];
+                $resultCateName = $mysqli->query($sql_name);
+                $name = $resultCateName->fetch_assoc();
+
             ?>
             <div class="right">
                <div class="title-main" >
-                <i class="fas fa-arrow-right" style="color:green;"> CHI TIẾT SẢN PHẨM</i>
+                <i class="fas fa-arrow-right" style="color:green;"> <?php echo $name["CategoryName"];?></i>
                </div>
                <!------------->
                <div class="list">
-
-
-                          <div class="item-list">
+                <?php 
+                    $idCate = $_GET["id"];
+                    $sql = "select * from products where CategoryID = ".$idCate;
+                    
+                    $resultCate = $mysqli->query($sql);
+                    while($data_result_Cate = $resultCate->fetch_assoc()){
+                        ?>
+                           <div class="item-list">
                             <div class="image-product">
-                                <img src="../images/products/a1.jpg" class="image-pro"/>
+                                <img src="../images/products/<?php echo $data_result_Cate["image"];?>" class="image-pro"/>
                             </div>
                             <div class="info-product">
-                                Tên: Prophere <br>
-                                Mô tả: cực chất  <br>
-                                giá: <span style="color:red">700.000</span><br>
-                                <a href="details/" > Chi tiết </a>
+                                Tên: <?php echo $data_result_Cate["ProductName"];?> <br>
+                                Mô tả: <?php echo $data_result_Cate["Description"];?>  <br>
+                                giá: <span style="color:red"><?php echo $data_result_Cate["Price"];?></span><br>
+                                <a href="../details?id_products=<?php echo $data_result_Cate["ProductID"];?>" > Chi tiết </a>
                             </div>
-                          </div>
-
-
-                          <div class="item-list">
-                            <div class="image-product">
-                                <img src="../images/products/a2.jpg" class="image-pro"/>
-                            </div>
-                            <div class="info-product">
-                                Tên: Utralboost đen<br>
-                                Mô tả: cực êm<br>
-                                giá: <span style="color:red"> 700 000 </span><br>
-                                <a href="details/">Chi tiết</a>
-                            </div>
-                          </div>
-
-
-                          <div class="item-list">
-                            <div class="image-product">
-                                <img src="../images/products/a3.jpg" class="image-pro"/>
-                            </div>
-                            <div class="info-product">
-                                Tên: Adidas neo<br>
-                                Mô tả: vải mềm <br>
-                                giá: <span style="color:red">290 000</span><br>
-                                <a href="details/">Chi tiết</a>
-                            </div>
-                          </div>
-
-
-                        <div class="item-list">
-                          <div class="image-product">
-                                <img src="../images/products/a4.jpg" class="image-pro"/>
-                            </div>
-                            <div class="info-product">
-                                Tên: Das XPRL <br>
-                                Mô tả: supper fake <br>
-                                giá: <span style="color:red">700 000</span><br>
-                                <a href="details/">Chi tiết</a>
-                            </div>
-                          </div>  
-                        </div>
+                          </div> 
+                        <?php
+                    }
+                ?>
                 </div>
                
                <!--------------->

@@ -2,8 +2,21 @@
             <ul class="ul-topmenu"> 
             <li>
                 <div class="user">
+                <?php
+                    require("url.php");
+                        session_start();
+                        if(isset($_SESSION["admin"]) && $_SESSION["admin"] != ""){
+                           echo '<a href="../admin/users-manager" class="user-item" style="color:green;">Manager('.$_SESSION["admin"].')</a>';
+                        }
+                        else if(isset($_SESSION["username"]) && $_SESSION["username"] != ""){
+                            echo '<a href="#" class="user-item">Logout('.$_SESSION["username"].')</a>';
+                        }else{
+                ?>
                     <a href="../login" class="user-item">Login</a>
                     <a href="../register" class="user-item">Register</a>
+                    <?php
+                        }
+                    ?>
                 </div>
                 </li>
                 <li>
@@ -31,7 +44,7 @@
                 </div>
                 <div class="menu-main">
                     <ul class="ul-menu">
-                        <li><a href="#" class="menu-item-li">Trang chủ</a></li>
+                        <li><a href="<?php echo $url;?>" class="menu-item-li">Trang chủ</a></li>
                         <li><a href="#" class="menu-item-li">Giày mới</a></li>
                         <li><a href="#" class="menu-item-li">Giày nam</a></li>
                         <li><a href="#" class="menu-item-li">Giày nữ</a></li>

@@ -135,7 +135,7 @@
                                     background:none;
                                     outline:none;
                                     padding:5px;
-                                    background-color: yellow;
+                                    background-color: white;
                                     border-radius: 9px;
                                     cursor:pointer;
                                     " 
@@ -153,7 +153,7 @@
                                      background:none;
                                      outline:none;
                                     padding:5px;
-                                    background-color: blue;
+                                    background-color: white;
                                     font-weight: 700;
                                     border-radius: 9px;
                                     cursor:pointer;

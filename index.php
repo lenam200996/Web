@@ -50,61 +50,28 @@
             <div class="right">
                 <div class="all">
                     <div class="title-main" >
-                            <a href="#"><i class="fas fa-arrow-right"></i> Sản phẩm mới</a>
+                            <a href="#" id="new"><i class="fas fa-arrow-right"></i> Sản phẩm mới</a>
                     </div>
                         <div class="list">
+
+                        <?php 
+                            $sql_new = "select * from products order by date desc limit 4";
+                            $result_new = $mysqli->query($sql_new);
+                            while ($data_new = $result_new->fetch_assoc()){
+                            
+                        ?>
                           <div class="item-list">
-                            <div class="image-product">
-                                <img src="images/products/a1.jpg" class="image-pro"/>
-                            </div>
-                            <div class="info-product">
-                                Tên: Prophere <br>
-                                Mô tả: cực chất  <br>
-                                giá: <span style="color:red">700.000</span><br>
-                                <a href="details/" >  <button class="btnChiTiet">Chi tiết</button> </a>
-                               
-                            </div>
-                          </div>
-
-
-                          <div class="item-list">
-                            <div class="image-product">
-                                <img src="images/products/a2.jpg" class="image-pro"/>
-                            </div>
-                            <div class="info-product">
-                                Tên: Utralboost đen<br>
-                                Mô tả: cực êm<br>
-                                giá: <span style="color:red"> 700 000 </span><br>
-                                <a href="details/" >  <button class="btnChiTiet">Chi tiết</button> </a>
-                            </div>
-                          </div>
-
-
-                          <div class="item-list">
-                            <div class="image-product">
-                                <img src="images/products/a3.jpg" class="image-pro"/>
-                            </div>
-                            <div class="info-product">
-                                Tên: Adidas neo<br>
-                                Mô tả: vải mềm <br>
-                                giá: <span style="color:red">290 000</span><br>
-                                <a href="details/" >  <button class="btnChiTiet">Chi tiết</button> </a>
-                            </div>
-                          </div>
-
-
-                        <div class="item-list">
-                          <div class="image-product">
-                                <img src="images/products/a4.jpg" class="image-pro"/>
-                            </div>
-                            <div class="info-product">
-                                Tên: Das XPRL <br>
-                                Mô tả: supper fake <br>
-                                giá: <span style="color:red">700 000</span><br>
-                                <a href="details/" >  <button class="btnChiTiet">Chi tiết</button> </a>
-                            </div>
-                          </div>  
-                        </div>
+                                        <div class="image-product">
+                                            <img src="images/products/<?php echo $data_new["image"];?>" class="image-pro"/>
+                                        </div>
+                                        <div class="info-product">
+                                            Tên: <?php echo $data_new["ProductName"];?>  <br>
+                                            Mô tả: <?php echo $data_new["Description"]; ?> <br>
+                                            giá: <span style="color:red"><?php echo $data_new["Price"]; ?></span><br>
+                                            <a href="details?id_products=<?php echo $data_new["ProductID"];?>" >  <button class="btnChiTiet">Chi tiết</button> </a>
+                                        </div>
+                                    </div>
+                            <?php }?>
                 </div>
 
 
@@ -113,7 +80,7 @@
                 <!----giay nam-->
                 <div class="giay-nam">
                     <div class="title-main" style="color: blue" >
-                            <a href="#"><i class="fas fa-arrow-right"></i> Giày nam</a>
+                            <a href="#" id="nam"><i class="fas fa-arrow-right"></i> Giày nam</a>
                     </div>
                         <?php
 
@@ -147,7 +114,7 @@
                  <!----giay nu-->
                 <div class="giay-nam">
                     <div class="title-main" style="color: blue">
-                            <a href="#"><i class="fas fa-arrow-right"></i> Giày nữ</a>
+                            <a href="#" id="nu"><i class="fas fa-arrow-right"></i> Giày nữ</a>
                     </div>
 
 
@@ -251,6 +218,21 @@
   function currentSlide(n) {
     showSlides(slideIndex = n);
   }
+</script>
+
+<script>
+    $('a[href^="#"]').on('click', function(event) {
+    var target = $(this.getAttribute('href'));
+    target.css("color") = "red";
+    if( target.length) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+            scrollTop: target.offset().top
+        }, slow);
+        
+    }
+
+    });
 </script>
 </body>
 </html>

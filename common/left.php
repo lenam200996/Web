@@ -1,16 +1,18 @@
+
+<?php require("url.php");?>
 <div class="left">
                 
                <div class="category">
                    <ul class="group-list" >
                        <li class="title active" style="text-align:center;line-height: 30px;font-weight:700;">DANH MỤC SẢN PHẨM</li>
                         <?php 
-                                $sql_left = "select CategoryName from categories ";
+                                $sql_left = "select CategoryID , CategoryName from categories ";
 
                                 $result_left = $mysqli->query($sql_left);
                                 while($data_result_left = $result_left->fetch_assoc())
                                 { 
                                     ?>
-                                         <li class="title item"><i class="fas fa-atom" style="margin: 0 10px 0 10px;"></i><?php echo $data_result_left["CategoryName"]; ?></li>
+                                         <li class="title item"><a href="<?php echo $url;?>/category?id=<?php echo $data_result_left["CategoryID"]; ?>"><i class="fas fa-atom" style="margin: 0 10px 0 10px;"></i><?php echo $data_result_left["CategoryName"]; ?></a></li>
                                     <?php
                                     
                                 }
