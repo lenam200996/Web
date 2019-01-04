@@ -3,18 +3,26 @@
             <li>
                 <div class="user">
                 <?php
+                session_start();
                     require("url.php");
-                        session_start();
+                    require("connect.php");
+                      
                         if(isset($_SESSION["admin"]) && $_SESSION["admin"] != ""){
                            echo '<a href="../admin/users-manager" class="user-item" style="color:green;">Manager('.$_SESSION["admin"].')</a>';
                         }
-                        else if(isset($_SESSION["username"]) && $_SESSION["username"] != ""){
-                            echo '<a href="#" class="user-item">Logout('.$_SESSION["username"].')</a>';
+                        else if(isset($_SESSION["user"]) && $_SESSION["user"] != ""){
+                            echo '<a href="javascript:logout()" class="user-item">Logout('.$_SESSION["user"].')</a>';
                         }else{
                 ?>
                     <a href="../login" class="user-item">Login</a>
                     <a href="../register" class="user-item">Register</a>
                     <?php
+                        }
+                        if(isset($_SESSION["id_user"])){
+                        $sql_count = "select count(*) as sl from orders where CustemerID = ".$_SESSION["id_user"];
+                       
+                        $rs = $mysqli->query($sql_count);
+                        $data = $rs->fetch_assoc();
                         }
                     ?>
                 </div>
@@ -45,13 +53,29 @@
                 <div class="menu-main">
                     <ul class="ul-menu">
                         <li><a href="<?php echo $url;?>" class="menu-item-li">Trang chủ</a></li>
-                        <li><a href="#" class="menu-item-li">Giày mới</a></li>
-                        <li><a href="#" class="menu-item-li">Giày nam</a></li>
-                        <li><a href="#" class="menu-item-li">Giày nữ</a></li>
-                        <li><a href="#" class="menu-item-li">Khuyến mãi</a></li>
-                        <li><a href="../carts"><i id="cart" style="font-size:25px;" class="fas fa-cart-plus"></i>Giỏ hàng</a></li>
+                        <li><a href="<?php echo $url;?>#new" class="menu-item-li">Giày mới</a></li>
+                        <li><a href="<?php echo $url;?>#nam" class="menu-item-li">Giày nam</a></li>
+                        <li><a href="<?php echo $url;?>#nu" class="menu-item-li">Giày nữ</a></li>
+                        <li><a href="<?php echo $url;?>/category?id=sale" class="menu-item-li">Khuyến mãi</a></li>
+                        <li><a href="../carts"><i id="cart" style="font-size:25px; transition: all 0.2s;" class="fas fa-cart-plus"></i>Giỏ hàng</a><span style="border:1px solid red;border-radius: 5px;background-color: red;color: white;    padding: 0 2px 0 2px;" id="count_cart"><?php if(isset($_SESSION["id_user"])) echo $data["sl"];else echo 0;?></span></li>
                     </ul>
                 </div>   
                 
             </div>
         </div>
+        <div class="div-clear"></div>
+        <script>
+    function logout(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    //do
+                    location.reload();
+                }
+            };
+            xhttp.open("GET", "../process/logout.php", true);
+            xhttp.send();
+            }
+        
+
+</script>

@@ -15,6 +15,7 @@
             require("../common/header_child.php");
             require("../common/connect.php");
             session_start();
+            $_GET["count"] = 1;
        ?>
       
        
@@ -49,7 +50,7 @@
                            <tr><td><hr></td><td><hr></td></tr>
                            <tr style="height: 20px;"></tr>
                            <tr>
-                       <td class="col-1"><?php if($data_result["sale"] == 1) {?><strike>Giá cũ: <?php  echo $data_result["Price"];?> <?php  echo $data_result["Unit"];?></strike> <br><br>Giá mới: <?php  echo ((double)$data_result["Price"] - (double)$data_result["Price"]/10);?><?php } else {?>
+                       <td class="col-1"><?php if($data_result["sale"] == 1) {?><strike>Giá cũ: <?php  echo $data_result["Price"];?> <?php  echo $data_result["Unit"];?></strike> <br><br>Giá mới: <?php  echo $data_result["price_sale"];?><?php } else {?>
                         Giá: <?php  echo $data_result["Price"];}?><?php  echo $data_result["Unit"];?>
                     
                     </td>
@@ -83,7 +84,7 @@
                                <div class="count">
 
                                     <button onclick="countsub(<?php  if($data_result['sale'] == 0) echo $data_result['Price'];
-                                        else echo ((double)$data_result['Price'] - (double)$data_result['Price']/10);
+                                        else echo $data_result['price_sale'];
                                     ?>
                                     )" class="fas fa-minus-circle" 
                                     style="width:20px;height:20px;
@@ -102,7 +103,7 @@
                                      outline:none;">
 
                                     <button onclick="countplus(<?php if($data_result['sale'] == 0) echo $data_result['Price'];
-                                        else echo ((double)$data_result['Price'] - (double)$data_result['Price']/10);?>
+                                        else echo $data_result['price_sale'];?>
                                         )" class="fas fa-plus-circle"
                                      style="width:20px;height:20px;
                                      background:none;
@@ -118,7 +119,7 @@
                                <td class="col-1">Tổng tiền: </td>
                                <td class="col-2">
                                     <span id="total-money"><?php  if($data_result['sale'] == 0) echo $data_result['Price'];
-                                        else echo ((double)$data_result['Price'] - (double)$data_result['Price']/10);?></span><?php  echo $data_result["Unit"];?>
+                                        else echo $data_result['price_sale'];?></span><?php  echo $data_result["Unit"];?>
                                </td>
                            </tr>
                            <tr>
@@ -139,7 +140,11 @@
                                     border-radius: 9px;
                                     cursor:pointer;
                                     " 
-                                    onmouseover="hovermouse(this)" onmouseout="unhovermouse(this)"> 
+                                    onmouseover="hovermouse(this)" onmouseout="unhovermouse(this)"
+                                    onclick="addCart(<?php echo trim($data_result['ProductID']) ;?> 
+                                   
+                                    )"
+                                    > 
                                    
                                      
                                         <p id="label-button" style="font-size:15px;">Thêm vào giỏ hàng</p>  
@@ -175,6 +180,7 @@
                </div>
                <div class="details-product" style="text-align: center;" >
                         <p>     Chi tiết sản phầm  </p>
+                        <span id="demo"></span>
                 </div>
                <!--------------->
                 <div class="div-clear"></div>
@@ -186,13 +192,37 @@
             ?>
     </div>
     <script>
+
+    function addCart(id){
+        var money = document.getElementById("total-money").innerHTML;
+        var quantiny =  document.getElementById("count-number").value;
+        var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").style.display = "block";
+
+
+      document.getElementById("demo").innerHTML =
+      this.responseText.substring(0,22);
+      document.getElementById("cart").style.fontSize  = "40px";
+      document.getElementById("count_cart").innerHTML = this.responseText.substring(22);
+      
+    }
+  };
+  xhttp.open("GET", "../process/add_cart.php?id="+id+"&money="+money+"&quantiny="+quantiny, true);
+  xhttp.send();
+  setTimeout(() => {
+    document.getElementById("demo").style.display = "none";
+    document.getElementById("cart").style.fontSize  = "25px";
+  }, 2000);
+    }
+
     function countsub(money){// Hàm xử lý tăng giảm số lượng khi click vào button ,cái này là trừ
 
         var value = document.getElementById("count-number").value;
         if(Number(value) > 1 ){
             var num  = Number(value) - 1;
             value = document.getElementById("count-number").value = num;
-            
             document.getElementById("total-money").innerHTML =  money*value;
         }
         console.log(num);
@@ -202,7 +232,7 @@
         var value = document.getElementById("count-number").value;
             var num  = Number(value) + 1;
             value = document.getElementById("count-number").value = num;
-            
+         
             document.getElementById("total-money").innerHTML =  money *value;
         console.log(num);
     }

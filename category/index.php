@@ -20,22 +20,30 @@
         
             <?php
                 require("../common/left.php");
-               
-                $sql_name = "select CategoryName from categories where CategoryID = ".$_GET["id"];
-                $resultCateName = $mysqli->query($sql_name);
-                $name = $resultCateName->fetch_assoc();
+               if($_GET["id"] != "sale"){
+                    $sql_name = "select CategoryName from categories where CategoryID = ".$_GET["id"];
+                    $resultCateName = $mysqli->query($sql_name);
+                    $name_sql = $resultCateName->fetch_assoc();
+                    $name =  $name_sql["CategoryName"];
+               }else{
+                   $name = "Khuyến mãi";
+               }
 
             ?>
             <div class="right">
                <div class="title-main" >
-                <i class="fas fa-arrow-right" style="color:green;"> <?php echo $name["CategoryName"];?></i>
+                <i class="fas fa-arrow-right" style="color:green;"> <?php echo $name;?></i>
                </div>
                <!------------->
                <div class="list">
                 <?php 
+                    if($_GET["id"] != "sale"){
                     $idCate = $_GET["id"];
                     $sql = "select * from products where CategoryID = ".$idCate;
-                    
+                    }
+                    else{
+                        $sql = "select * from products where sale = 1";
+                    }
                     $resultCate = $mysqli->query($sql);
                     while($data_result_Cate = $resultCate->fetch_assoc()){
                         ?>
@@ -46,7 +54,12 @@
                             <div class="info-product">
                                 Tên: <?php echo $data_result_Cate["ProductName"];?> <br>
                                 Mô tả: <?php echo $data_result_Cate["Description"];?>  <br>
-                                giá: <span style="color:red"><?php echo $data_result_Cate["Price"];?></span><br>
+                                giá: <span style="color:red"><?php if($_GET["id"] != "sale") echo $data_result_Cate["Price"];
+                                else echo $data_result_Cate["price_sale"];
+                                ?></span><br>
+                                <?php if($_GET["id"] == "sale"){?>
+                                giá cũ: <strike><?php echo $data_result_Cate["Price"];?></strike><br>
+                                <?php }?>
                                 <a href="../details?id_products=<?php echo $data_result_Cate["ProductID"];?>" > Chi tiết </a>
                             </div>
                           </div> 

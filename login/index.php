@@ -31,9 +31,23 @@
                 header("Location:../");
                 exit();
             }else{
+                
+            $sql = "select * from customers where UserName = '".$username."' and Password = '".$password."'";
+
+            $result = $mysqli->query($sql);
+            $data_result = mysqli_fetch_assoc($result);
+            if(mysqli_num_rows($result) != 0){
+                $_SESSION["user"] = $data_result["UserName"];
+                $_SESSION["id_user"]= $data_result["CustomerID"];
+                
+                header("Location:../");
+                exit();
+            }else{
+            
                 echo '<script>
                     alert("Đăng nhập thất bại, vui lòng kiểm tra lại!!");
                 </script>';
+                }
             }
     }
     ?>
