@@ -12,7 +12,7 @@ $result = $data["UserID"].":".$data["Fullname"].":".$data["Username"].":".$data[
 
 echo $result;
 }else{
-    if($_REQUEST["id"] == 'true'){
+    if($_REQUEST["submit"] == 'true'){
         require("../common/connect.php");
         $id = $_REQUEST["id"];
         $us = $_REQUEST["us"];

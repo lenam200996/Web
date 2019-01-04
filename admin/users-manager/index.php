@@ -21,7 +21,7 @@
 
         <div class="container">
             <div class="header">
-                <span style="font-size: 40px">Welcom, ADMIN huyenle | <a href="javascript:logout()">(Logout)</a></span>
+                <span style="font-size: 40px">Welcom, ADMIN | <a href="javascript:logout()">(Logout)</a></span>
                 
             </div>
             <div class="menu">
