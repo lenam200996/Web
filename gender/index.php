@@ -20,13 +20,11 @@
         
             <?php
                 require("../common/left.php");
-               if($_GET["id"] != "sale"){
-                    $sql_name = "select CategoryName from categories where CategoryID = ".$_GET["id"];
-                    $resultCateName = $mysqli->query($sql_name);
-                    $name_sql = $resultCateName->fetch_assoc();
-                    $name =  $name_sql["CategoryName"];
+               if($_GET["id"] == "M"){
+                    
+                    $name =  "Giày nam";
                }else{
-                   $name = "Khuyến mãi";
+                   $name = "Giày nữ";
                }
 
             ?>
@@ -37,18 +35,12 @@
                <!------------->
                <div class="list">
                 <?php 
-                    if($_GET["id"] != "sale"){
+                    
                     $idCate = $_GET["id"];
-                    if(!isset($_GET["key-word"]))
-                        $sql = "select * from products where CategoryID = ".$idCate;
-                    else 
-                        $sql = "select * from products where ProductName like '%".$_GET["key-word"]."%' and CategoryID = ".$idCate;
-                    }
-                    else{
-                        if(!isset($_GET["key-word"]))
-                            $sql = "select * from products where sale = 1";
-                        else 
-                            $sql = "select * from products where sale = 1 and ProductName like '%".$_GET["key-word"]."%'";
+                    if(!isset($_GET["key-word"])){
+                    $sql = "select * from products where gender = '".$idCate."' or gender = 'FM'";
+                    }else{
+                        $sql = "select * from products where ProductName like '%".$_GET["key-word"]."%' and (gender = '".$idCate."' or gender = 'FM')";
                     }
                     $resultCate = $mysqli->query($sql);
                     while($data_result_Cate = $resultCate->fetch_assoc()){

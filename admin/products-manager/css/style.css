@@ -7,6 +7,8 @@ table{
 
 }
 
+
+
 ul{
     list-style-type: none;
     width: 100%;
@@ -37,15 +39,14 @@ ul li{
 }
 
 .table-view{
-    width: 40%;
-    float: left;
-    margin-right:60px;
+    width: 99%;
+
 }
 
 .input-view{
-    width: 40%;
-    float: left;
-    margin-left:60px;
+    width:99%;
+    margin-top: 30px;
+
 }
 .div-clear{
     clear: left;

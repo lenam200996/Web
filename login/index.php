@@ -27,8 +27,8 @@
 
             if(mysqli_num_rows($result) != 0){
                 $_SESSION["admin"] = $data_result["Username"];
-                
-                header("Location:../");
+                $_SESSION["id_user"]= "-1";
+                header("Location:../admin/users-manager");
                 exit();
             }else{
                 

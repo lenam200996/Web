@@ -1,0 +1,63 @@
+.image-details{
+      width: 30%;
+      height: 600px;
+     
+      float: left;
+      padding-top: 20px;
+  }
+
+  .details{
+      width: 70%;
+      height: auto;
+      border-bottom:.5px solid rgb(214, 90, 90);
+      float: left;
+      margin-bottom: 20px;
+  }
+
+  .col-1{
+      width: 20%;
+      padding: 10px 0 10px 0;
+      
+  }
+
+  .col-2{
+      width: 80%;
+      padding: 10px 0 10px 0;
+  }
+
+  .count{
+      width: 100%;
+      height: 25px;
+  }
+
+  .btnCount{
+      width: 50px;
+  }
+
+  #count-number::-webkit-inner-spin-button, 
+  #count-number::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.details-product{
+    text-align: left;
+}
+
+.tb_xn{
+    text-align: left;
+    padding-left: 30px;
+}
+
+.tb_xn tr td {
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+.tilte_tb{
+    color:green;
+}
+
+legend{
+    color: red; 
+    font-size: 30px;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>DANH MỤC SẢN PHẨM</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
@@ -12,7 +12,11 @@
         require("../../common/connect.php");
         require("../../common/url.php");
 
-
+        session_start();
+        if(!isset($_SESSION["id_user"])){
+            header("Location:".$url);
+            exit();
+        }
         $sql_select = "SELECT * FROM categories ORDER BY categories.CategoryName DESC";
         $rs_select = $mysqli->query($sql_select);
 
@@ -21,15 +25,15 @@
 
         <div class="container">
             <div class="header">
-                <span style="font-size: 40px">Welcom, ADMIN | <a href="javascript:logout()">(Logout)</a></span>
+                <span style="font-size: 40px;color:white;">Welcom, ADMIN | <a href="javascript:logout()">(Logout)</a></span>
                 
             </div>
             <div class="menu">
                 <ul>
-                    <li>Home</li>
-                    <li>Users</li>
-                    <li>Categoris</li>
-                    <li>Products</li>
+                    <li><a href="<?php echo $url;?>">Home</a></li>
+                    <li><a href="../users-manager">Users</a></li>
+                    <li><a href="../categories-manager">Categoris</a></li>
+                    <li><a href="../products-manager">Products</a></li>
                 </ul>
             </div>
             <div class="body-main">

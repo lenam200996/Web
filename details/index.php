@@ -144,6 +144,7 @@
                                     onclick="addCart(<?php echo trim($data_result['ProductID']) ;?> 
                                    
                                     )"
+                                    <?php if( !isset($_SESSION["id_user"]) || $_SESSION["id_user"] == "-1") echo 'disabled';?>
                                     > 
                                    
                                      
@@ -162,7 +163,9 @@
                                     font-weight: 700;
                                     border-radius: 9px;
                                     cursor:pointer;
-                                    " onmouseover="hovermouse(this)"  onmouseout="unhovermouse(this)">
+                                    " onmouseover="hovermouse(this)"  onmouseout="unhovermouse(this)"
+                                     <?php if(!isset($_SESSION["id_user"]) || ($_SESSION["id_user"])  == "-1") echo 'disabled';?>
+                                    >
                                         <p id="label-button" style="font-size:15px;">Mua ngay</p>  
                                     </button>
                                </td>
@@ -194,6 +197,7 @@
     <script>
 
     function addCart(id){
+
         var money = document.getElementById("total-money").innerHTML;
         var quantiny =  document.getElementById("count-number").value;
         var xhttp = new XMLHttpRequest();

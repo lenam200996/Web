@@ -20,17 +20,17 @@
 
                 <div class="slideshow-container" >
                     <div class="mySlides fade">
-                        <img src="images/slide/baner.jpg" style="width:100%;height:380px;">
+                        <a href="category/?id=sale"><img src="images/slide/baner.jpg" style="width:100%;height:380px;"></a>
                         <div class="text"> *** CHÀO MỪNG BẠN TỚI VỚI THẾ GIỚI GIÀY *** </div>
                     </div>
                     
                     <div class="mySlides fade">
-                        <img src="images/slide/banner7.jpg" style="width:100%;height:380px;">
+                        <a href="category/?id=sale"><img src="images/slide/banner7.jpg" style="width:100%;height:380px;"></a>
                         <div class="text">*** CHƯƠNG TRÌNH ƯU ĐÃI *** </div>
                     </div>
                     
                     <div class="mySlides fade">
-                        <img src="images/slide/baner.jpg" style="width:100%;height:380px;">
+                        <a href="category/?id=sale"><img src="images/slide/baner.jpg" style="width:100%;height:380px;"></a>
                         <div class="text">*** SNEAKER GIÁ RẺ *** </div>
                     </div>
                 </div>
@@ -55,7 +55,11 @@
                         <div class="list">
 
                         <?php 
+                         if(!isset($_GET["key-word"])){
                             $sql_new = "select * from products order by date desc limit 4";
+                         }else{
+                            $sql_new = "select * from products where ProductName like '%".$_GET["key-word"]."%'  order by date desc limit 4";
+                         }
                             $result_new = $mysqli->query($sql_new);
                             while ($data_new = $result_new->fetch_assoc()){
                             
@@ -83,9 +87,11 @@
                             <a href="#" id="nam"><i class="fas fa-arrow-right"></i> Giày nam</a>
                     </div>
                         <?php
-
+                             if(!isset($_GET["key-word"])){
                                 $sql_giaynam = "select * from products where gender = 'M' or gender='FM' limit 8";
-
+                             }else{
+                                $sql_giaynam = "select * from products where ProductName like '%".$_GET["key-word"]."%' and (gender = 'M' or gender='FM') limit 8";
+                             }
                                 $result = $mysqli->query($sql_giaynam);
                                 while($data_result = $result->fetch_assoc())
                                 { 
@@ -119,9 +125,11 @@
 
 
                     <?php
-
-                            $sql_giaynam = "select * from products where gender = 'F' or gender='FM' limit 8";
-
+                             if(!isset($_GET["key-word"])){
+                                $sql_giaynam = "select * from products where gender = 'F' or gender='FM' limit 8";
+                             }else{
+                                $sql_giaynam = "select * from products where ProductName like '%".$_GET["key-word"]."%' and (gender = 'F' or gender='FM') limit 8";
+                             }
                             $result = $mysqli->query($sql_giaynam);
                             while($data_result = $result->fetch_assoc())
                             { 
@@ -147,15 +155,7 @@
 
                 <div class="div-clear"></div>
               
-                <!-- <div class="paging">
-                    <ul class="ul-paging">
-                        <li style="border-left: .1px solid lightslategray;" >Prev</li>
-                        <li class="act">1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>Next</li>
-                    </ul>
-                </div> -->
+               
                 
             </div>
         </div>

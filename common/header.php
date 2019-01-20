@@ -18,7 +18,7 @@
                     <?php
                         }
 if(isset($_SESSION["id_user"])){
-                        $sql_count = "select count(*) as sl from orders where CustemerID = ".$_SESSION["id_user"];
+                        $sql_count = "select count(*) as sl from orders join orderdetails on orderdetails.OrderID = orders.OrderID where paid = 0  and CustemerID = ".$_SESSION["id_user"];
 $rs = $mysqli->query($sql_count);
 $data = $rs->fetch_assoc();}
                     ?>
@@ -28,6 +28,7 @@ $data = $rs->fetch_assoc();}
                     <form action="" method="GET">
                         <input type="text" name="key-word" placeholder="Search..." />
                         <input type="submit" value="Search">
+                        
                     </form>
                 </li>
                 <li style="color:black;">Hotline: 0981240562 </li>
@@ -50,9 +51,11 @@ $data = $rs->fetch_assoc();}
                 <div class="menu-main">
                     <ul class="ul-menu">
                         <li><a href="<?php echo $url;?>" class="menu-item-li">Trang chủ</a></li>
+                        <li><a href="common/about.php" class="menu-item-li">Giới thiệu</a></li>
+                        <li><a href="common/contact.php" class="menu-item-li">Liên hệ</a></li>
                         <li><a href="#new" class="menu-item-li">Giày mới</a></li>
-                        <li><a href="#nam" class="menu-item-li" >Giày nam</a></li>
-                        <li><a href="#nu" class="menu-item-li">Giày nữ</a></li>
+                        <li><a href="gender?id=M" class="menu-item-li" >Giày nam</a></li>
+                        <li><a href="gender?id=F" class="menu-item-li">Giày nữ</a></li>
                         <li><a href="<?php echo $url;?>/category?id=sale" class="menu-item-li">Khuyến mãi</a></li>
                         <li><a href="carts"><i id="cart" style="font-size:25px;" class="fas fa-cart-plus"></i><span style="font-size:15px;">Giỏ hàng</span><span style="border:1px solid red;border-radius: 5px;background-color: red;color: white; padding: 0 2px 0 2px;" id="count_cart"><?php if(isset($_SESSION["id_user"])) echo $data["sl"];else echo 0;?></span></a></li>
                     </ul>

@@ -1,15 +1,13 @@
 <?php 
-  if(isset($_SESSION["admin"]) && $_SESSION["admin"] != ""){
-    echo "Bạn là quản trị viên không thể thức hiện chức năng này!!";
+session_start();
+  if(isset($_SESSION["admin"])){
     return;
   }else{
 $id = $_REQUEST["id"] ;
 $money = $_REQUEST["money"] ;
 $quantiny = $_REQUEST["quantiny"] ;
-session_start();
+
 $id_user = $_SESSION["id_user"];
-
-
 require('../common/connect.php');
 
 
@@ -27,9 +25,9 @@ values (".$data_num["OrderID"].",".$id.",".$quantiny.")
 
 $mysqli->query($sql_insert_orders_details);
 
-$sql_count = "select count(*) as sl from orders where CustemerID = ".$id_user;
+$sql_count = "select count(*) as sl from orders join orderdetails on orderdetails.OrderID = orders.OrderID where paid = 0 and  CustemerID = ".$id_user;
 $rs = $mysqli->query($sql_count);
 $data = $rs->fetch_assoc();
-echo "đã thêm vào giỏ hàng!!".$data["sl"];
+echo "Đã thêm vào giỏ hàng!!".$data["sl"];
 
 }

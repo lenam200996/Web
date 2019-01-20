@@ -19,7 +19,7 @@
                     <?php
                         }
                         if(isset($_SESSION["id_user"])){
-                        $sql_count = "select count(*) as sl from orders where CustemerID = ".$_SESSION["id_user"];
+                        $sql_count = "select count(*) as sl from orders join orderdetails on orderdetails.OrderID = orders.OrderID where paid = 0 and CustemerID = ".$_SESSION["id_user"];
                        
                         $rs = $mysqli->query($sql_count);
                         $data = $rs->fetch_assoc();
@@ -31,6 +31,12 @@
                     <form action="" method="GET">
                         <input type="text" name="key-word" placeholder="Search..."/>
                         <input type="submit" value="Search">
+                        <?php if(isset($_GET["id"])){
+                        echo '<input type="hidden" name="id" value="'.$_GET["id"].'"/>';}
+                            else if(isset($_GET["id_products"])){
+                                echo '<input type="hidden" name="id_products" value="'.$_GET["id_products"].'"/>';
+                            }
+                        ?>
                     </form>
                 </li>
                 <li style="color:black;">Hotline: 0981240562 </li>
@@ -53,9 +59,11 @@
                 <div class="menu-main">
                     <ul class="ul-menu">
                         <li><a href="<?php echo $url;?>" class="menu-item-li">Trang chủ</a></li>
+                        <li><a href="<?php echo $url;?>/common/about.php" class="menu-item-li">Giới thiệu</a></li>
+                        <li><a href="<?php echo $url;?>/common/contact.php" class="menu-item-li">Liên hệ</a></li>
                         <li><a href="<?php echo $url;?>#new" class="menu-item-li">Giày mới</a></li>
-                        <li><a href="<?php echo $url;?>#nam" class="menu-item-li">Giày nam</a></li>
-                        <li><a href="<?php echo $url;?>#nu" class="menu-item-li">Giày nữ</a></li>
+                        <li><a href="<?php echo $url;?>/gender?id=M" class="menu-item-li">Giày nam</a></li>
+                        <li><a href="<?php echo $url;?>/gender?id=F" class="menu-item-li">Giày nữ</a></li>
                         <li><a href="<?php echo $url;?>/category?id=sale" class="menu-item-li">Khuyến mãi</a></li>
                         <li><a href="../carts"><i id="cart" style="font-size:25px; transition: all 0.2s;" class="fas fa-cart-plus"></i>Giỏ hàng</a><span style="border:1px solid red;border-radius: 5px;background-color: red;color: white;    padding: 0 2px 0 2px;" id="count_cart"><?php if(isset($_SESSION["id_user"])) echo $data["sl"];else echo 0;?></span></li>
                     </ul>

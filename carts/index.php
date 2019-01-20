@@ -27,7 +27,7 @@
                 if(isset($_SESSION["id_user"])){
                 $sql_cart = "select * from orders join orderdetails on orderdetails.OrderID = orders.OrderID
                 join products on products.ProductID = orderdetails.ProductID join customers on customers.CustomerID = orders.CustemerID 
-                where customers.CustomerID =  ".$_SESSION["id_user"];//.$_GET["id"];
+                where  paid = 0 and customers.CustomerID =  ".$_SESSION["id_user"];//.$_GET["id"];
                
             }
             ?>
@@ -101,21 +101,23 @@
                    
                    <?php 
                    if(isset($_SESSION["id_user"])){
-                   $sql_money = "select sum(TotalAmount) as tong from orders 
-                   where CustemerID =  ".$_SESSION["id_user"]." group by CustemerID";
+                   $sql_money = "select sum(TotalAmount) as tong  from orders join orderdetails on orderdetails.OrderID = orders.OrderID where paid = 0 and 
+                   CustemerID =  ".$_SESSION["id_user"];
 
                    $rs = $mysqli->query($sql_money);
                     $data = $rs->fetch_assoc();
+                  
                    }
+                   
                    ?>
                <!--------------->
                 <div class="div-clear"></div>
                 <div class="xacnhan">
                     
-                    <span  class="break">Tổng tiền: <span id="total"><?php if(isset($_SESSION["id_user"])) echo $data["tong"]; else echo 0;?> </span> đồng</span>
-                    <button disabled = "<?php echo isset($_SESSION['id_user'])?'false':'true';  ?>" class="fas fa-check-circle btnChiTiet"> Xác nhận</button>
+                    <span  class="break">Tổng tiền: <span id="total"><?php if(isset($_SESSION["id_user"])) echo $data["tong"]!=null?$data["tong"]:0; else echo 0;?> </span> đồng</span>
+                    <a href="../confirm_cart" <?php  if(isset($_SESSION['id_user']) && $data["tong"]>0) echo ''; else echo ' onclick="return false;"';  ?> ><button  class="fas fa-check-circle btnChiTiet"> Xác nhận</button></a>
                     <a href="<?php echo $url;?>"><button class="fas fa-ban btnChiTiet"> Để sau</button></a>
-                    <button disabled = "<?php echo isset($_SESSION['id_user'])?'false':'true';  ?>" class="fas fa-trash-alt btnChiTiet" onclick="delete_all()"> Xóa tất cả</button>
+                    <button <?php if(isset($_SESSION['id_user']) && $data["tong"]>0 ) echo ''; else echo 'disabled';  ?> class="fas fa-trash-alt btnChiTiet" onclick="delete_all()"> Xóa tất cả</button>
                 </div>
             </div>
         </div>
@@ -138,17 +140,16 @@ setInterval(() => {
 }, 100);
 
 function delete_all(){
+
     var conf = confirm("Xóa toàn bộ đơn hàng?");
     if(conf){
     var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("demo").style.display = "block";
-
-
-            //document.getElementById("demo").innerHTML =this.responseText.substring(0,22);//chinh sua
-            document.getElementById("count_cart").innerHTML = this.responseText;
-            location.reload();
+                //document.getElementById("demo").innerHTML =this.responseText.substring(0,22);//chinh sua
+                document.getElementById("count_cart").innerHTML = this.responseText;
+                location.reload();
             }
         };
         xhttp.open("GET", "../process/delete_cart.php?all=true", true);
