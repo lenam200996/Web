@@ -182,8 +182,8 @@
                    
                </div>
                <div class="details-product" style="text-align: center;" >
-                        <p>     Chi tiết sản phầm  </p>
-                        <span id="demo"></span>
+                       
+                        <span id="demo" style="color:red"></span>
                 </div>
                <!--------------->
                 <div class="div-clear"></div>
